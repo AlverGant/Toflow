@@ -39,7 +39,7 @@ sudo systemctl restart docker
 mkdir -p "$HOME"/toflow
 cd "$HOME"/toflow
 # Create DockerFile
-wget https://www.dropbox.com/s/wjx2l52v3jdhgze/Dockerfile -O Dockerfile
+wget https://raw.githubusercontent.com/AlverGant/Toflow/master/Dockerfile -O Dockerfile
 # "compile" docker images
 sudo docker build -t toflow .
 

@@ -20,8 +20,8 @@ RUN cd /torch && ./install.sh
 RUN cd / && git clone https://github.com/anchen1011/toflow.git
 RUN sed -i 's/sm_20/sm_30/g'  /toflow/src/stnbhwd/CMakeLists.txt
 RUN cd /toflow/src/stnbhwd && /torch/install/bin/luarocks make
-RUN cd /toflow && ./donwload_models.sh
+RUN cd /toflow && ./download_models.sh
 
-WORKDIR /toflow
+WORKDIR /toflow/src
 
 ENTRYPOINT ["/bin/bash"]
