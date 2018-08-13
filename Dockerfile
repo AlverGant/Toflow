@@ -22,7 +22,7 @@ RUN sed -i 's/sm_20/sm_30/g'  /toflow/src/stnbhwd/CMakeLists.txt
 RUN cd /toflow/src/stnbhwd && /torch/install/bin/luarocks make
 RUN cd /toflow && ./download_models.sh
 RUN cd / && wget https://www.dropbox.com/s/br1xdwog0787vys/cudnn-9.0-linux-x64-v7.2.1.38.tgz
-RUN tar -xzvf cudnn-9.0-linux-x64-v7.2.1.38.tg
+RUN tar -xzvf cudnn-9.0-linux-x64-v7.2.1.38.tgz
 RUN cp cuda/include/cudnn.h /usr/local/cuda/include
 RUN cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 RUN chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
