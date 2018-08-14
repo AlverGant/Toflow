@@ -23,9 +23,11 @@ RUN cd /toflow/src/stnbhwd && /torch/install/bin/luarocks make
 RUN cd /toflow && ./download_models.sh
 RUN cd / && wget https://www.dropbox.com/s/br1xdwog0787vys/cudnn-9.0-linux-x64-v7.2.1.38.tgz
 RUN tar -xzvf cudnn-9.0-linux-x64-v7.2.1.38.tgz
-RUN cp cuda/include/cudnn.h /usr/local/cuda/include
-RUN cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+RUN cp /cuda/include/cudnn.h /usr/local/cuda/include
+RUN cp /cuda/lib64/libcudnn* /usr/local/cuda/lib64
+ENV CUDNN_PATH="/cuda/lib64/libcudnn.so.7.2.1"
 RUN chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+RUN git clone https://github.com/soumith/cudnn.torch.git -b R7 && cd cudnn.torch && /torch/install/bin/luarocks make cudnn-scm-1.rockspec
 
 WORKDIR /toflow/src
 
